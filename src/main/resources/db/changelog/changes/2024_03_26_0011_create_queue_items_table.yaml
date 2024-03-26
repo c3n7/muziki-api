@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024_03_26_0011_create_queue_items_table.yaml
+      author: Timothy Karani
+      changes:
+        - createTable:
+            tableName: queue_items
+            columns:
+              - column:
+                  name: id
+                  type: "INT UNSIGNED"
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: queue_id
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: song_id
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deleted_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true

@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024_03_26_0010_create_queues_table
+      author: Timothy Karani
+      changes:
+        - createTable:
+            tableName: queues
+            columns:
+              - column:
+                  name: id
+                  type: INT UNSIGNED
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: INT UNSIGNED
+                  constraints:
+                    nullable: true
+              - column:
+                  name: current_song_id
+                  type: INT UNSIGNED
+                  constraints:
+                    nullable: true
+              - column:
+                  name: playback_position
+                  type: DECIMAL(8,2)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deleted_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true
