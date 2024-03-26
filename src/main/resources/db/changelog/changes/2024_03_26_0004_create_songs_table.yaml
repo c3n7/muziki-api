@@ -1,0 +1,81 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024_03_26_0004_create_songs_table
+      author: Timothy Karani
+      changes:
+        - createTable:
+            tableName: songs
+            columns:
+              - column:
+                  name: id
+                  type: "INT UNSIGNED"
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: p_key_songs
+              - column:
+                  name: album_id
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: artist_id
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: title
+                  type: VARCHAR(200)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: length
+                  type: DECIMAL(8,2)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: lyrics
+                  type: TEXT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: genre
+                  type: VARCHAR(200)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: path
+                  type: TEXT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: track_no
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: disc_no
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: year
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deleted_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true
