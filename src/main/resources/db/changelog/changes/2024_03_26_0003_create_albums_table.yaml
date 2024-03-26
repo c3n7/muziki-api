@@ -1,0 +1,41 @@
+databaseChangelog:
+  - changeSet:
+      id: 2024_03_26_0003_create_albums_table
+      author: Timothy Karani
+      changes:
+        - createTable:
+            tableName: albums
+            columns:
+              - column:
+                  name: id
+                  type: "INT UNSIGNED"
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: p_key_albums
+              - column:
+                  name: artist_id
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: cover
+                  type: TEXT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deleted_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true
