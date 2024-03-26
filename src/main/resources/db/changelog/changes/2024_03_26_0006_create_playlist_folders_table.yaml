@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024_03_26_0005_create_playlist_folders_table
+      author: Timothy Karani
+      changes:
+        - createTable:
+            tableName: playlist_folders
+            columns:
+              - column:
+                  name: id
+                  type: "INT UNSIGNED"
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deleted_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true
