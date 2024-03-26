@@ -1,4 +1,4 @@
-databaseChangelog:
+databaseChangeLog:
   - changeSet:
       id: 2024_03_26_0002_create_artists_table
       author: Timothy Karani

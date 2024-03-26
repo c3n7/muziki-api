@@ -1,4 +1,4 @@
-databaseChangelog:
+databaseChangeLog:
   - changeSet:
       id: 2024_03_26_0001_create_users_table
       author: Timothy Karani
