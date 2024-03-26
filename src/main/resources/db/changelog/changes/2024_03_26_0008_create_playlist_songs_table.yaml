@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024_03_26_0008_create_playlist_songs_table
+      author: Timothy Karani
+      changes:
+        - createTable:
+            tableName: playlist_songs
+            columns:
+              - column:
+                  name: id
+                  type: "INT UNSIGNED"
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: playlist_id
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: song_id
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deleted_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true

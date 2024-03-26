@@ -13,3 +13,5 @@ databaseChangeLog:
       file: db/changelog/changes/2024_03_26_0006_create_playlist_folders_table.yaml
   - include:
       file: db/changelog/changes/2024_03_26_0007_create_playlists_table.yaml
+  - include:
+      file: db/changelog/changes/2024_03_26_0008_create_playlist_songs_table.yaml
