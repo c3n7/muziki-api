@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: 2024_03_26_0001_create_users_table
+      id: 2024_03_26_0005_create_interactions_table
       author: Timothy Karani
       changes:
         - createTable:
-            tableName: users
+            tableName: interactions
             columns:
               - column:
                   name: id
@@ -14,25 +14,23 @@ databaseChangeLog:
                     nullable: false
                     primaryKey: true
               - column:
-                  name: name
-                  type: VARCHAR(100)
+                  name: user_id
+                  type: "INT UNSIGNED"
                   constraints:
-                    nullable: false
+                    nullable: true
               - column:
-                  name: email
-                  type: VARCHAR(100)
+                  name: song_id
+                  type: "INT UNSIGNED"
                   constraints:
-                    nullable: false
-                    unique: true
-                    uniqueConstraintName: u_key_users_email
+                    nullable: true
               - column:
-                  name: password
+                  name: key
                   type: VARCHAR(100)
                   constraints:
                     nullable: true
               - column:
-                  name: is_admin
-                  type: TIMESTAMP
+                  name: value
+                  type: TEXT
                   constraints:
                     nullable: true
               - column:

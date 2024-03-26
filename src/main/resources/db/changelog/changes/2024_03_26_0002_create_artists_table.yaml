@@ -8,12 +8,11 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: BIGINT
+                  type: "INT UNSIGNED"
                   autoIncrement: true
                   constraints:
                     nullable: false
                     primaryKey: true
-                    primaryKeyName: p_key_artists
               - column:
                   name: name
                   type: VARCHAR(100)
