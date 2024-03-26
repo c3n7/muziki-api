@@ -8,7 +8,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: "INT UNSIGNED"
+                  type: INT UNSIGNED
                   autoIncrement: true
                   constraints:
                     nullable: false

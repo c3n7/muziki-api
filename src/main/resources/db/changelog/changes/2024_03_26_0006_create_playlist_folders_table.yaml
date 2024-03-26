@@ -8,14 +8,14 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: "INT UNSIGNED"
+                  type: INT UNSIGNED
                   autoIncrement: true
                   constraints:
                     nullable: false
                     primaryKey: true
               - column:
                   name: user_id
-                  type: "INT UNSIGNED"
+                  type: INT UNSIGNED
                   constraints:
                     nullable: true
               - column:

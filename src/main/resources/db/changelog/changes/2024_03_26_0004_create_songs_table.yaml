@@ -8,19 +8,19 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: "INT UNSIGNED"
+                  type: INT UNSIGNED
                   autoIncrement: true
                   constraints:
                     nullable: false
                     primaryKey: true
               - column:
                   name: album_id
-                  type: "INT UNSIGNED"
+                  type: INT UNSIGNED
                   constraints:
                     nullable: true
               - column:
                   name: artist_id
-                  type: "INT UNSIGNED"
+                  type: INT UNSIGNED
                   constraints:
                     nullable: true
               - column:
@@ -50,17 +50,17 @@ databaseChangeLog:
                     nullable: true
               - column:
                   name: track_no
-                  type: "INT UNSIGNED"
+                  type: INT UNSIGNED
                   constraints:
                     nullable: true
               - column:
                   name: disc_no
-                  type: "INT UNSIGNED"
+                  type: INT UNSIGNED
                   constraints:
                     nullable: true
               - column:
                   name: year
-                  type: "INT UNSIGNED"
+                  type: INT UNSIGNED
                   constraints:
                     nullable: true
               - column:
