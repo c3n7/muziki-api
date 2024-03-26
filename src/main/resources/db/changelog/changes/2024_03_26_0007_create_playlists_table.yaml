@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: 2024_03_26_0006_create_playlist_folders_table
+      id: 2024_03_26_0007_create_playlists_table
       author: Timothy Karani
       changes:
         - createTable:
-            tableName: playlist_folders
+            tableName: playlists
             columns:
               - column:
                   name: id
@@ -15,6 +15,11 @@ databaseChangeLog:
                     primaryKey: true
               - column:
                   name: user_id
+                  type: "INT UNSIGNED"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: folder_id
                   type: "INT UNSIGNED"
                   constraints:
                     nullable: true
