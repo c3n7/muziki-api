@@ -10,14 +10,14 @@ import tech.c3n7.muziki.artists.entity.Artist;
 import java.util.List;
 
 @Service
-public class ArtistServiceImpl implements  ArtistService{
+public class ArtistServiceImpl implements ArtistService {
     @Autowired
     private ArtistRepository artistRepository;
 
     @Override
     public ArtistListResponseDTO findAll(int pageNumber, int pageSize) {
-        List<Artist> artists = artistRepository.findByDeletedAtIsNull(PageRequest.of(pageNumber, pageSize));
-
-        return new ArtistListResponseDTO(artists, pageNumber, pageSize);
+        List<Artist> artists = artistRepository.findByDeletedAtIsNull(PageRequest.of(pageNumber - 1, pageSize));
+        long total = artistRepository.countByDeletedAtIsNull();
+        return new ArtistListResponseDTO(artists, pageNumber, pageSize, total);
     }
 }
