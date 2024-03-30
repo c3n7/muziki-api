@@ -8,7 +8,12 @@ import java.util.List;
 
 public interface ArtistRepository extends JpaRepository<Artist, Integer> {
     List<Artist> findByDeletedAtIsNull();
+
     List<Artist> findByDeletedAtIsNull(Pageable pageable);
 
     long countByDeletedAtIsNull();
+
+    List<Artist> findByNameAndDeletedAtIsNull(String name, Pageable pageable);
+
+    long countByNameAndDeletedAtIsNull(String name);
 }

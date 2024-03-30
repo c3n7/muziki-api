@@ -27,6 +27,11 @@ public class Artist {
     @Column(name="deleted_at")
     private LocalDateTime deletedAt;
 
+    public Artist() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
     public int getId() {
         return id;
     }

@@ -20,4 +20,20 @@ public class ArtistServiceImpl implements ArtistService {
         long total = artistRepository.countByDeletedAtIsNull();
         return new ArtistListResponseDTO(artists, pageNumber, pageSize, total);
     }
+
+    @Override
+    public ArtistListResponseDTO findByName(String name, int pageNumber, int pageSize) {
+        List<Artist> artists = artistRepository.findByNameAndDeletedAtIsNull(name, PageRequest.of(pageNumber - 1, pageSize));
+        long total = artistRepository.countByNameAndDeletedAtIsNull(name);
+        return new ArtistListResponseDTO(artists, pageNumber, pageSize, total);
+    }
+
+    @Override
+    public Artist createArtist(String name) {
+        Artist artist = new Artist();
+        artist.setName(name);
+        artistRepository.save(artist);
+
+        return artist;
+    }
 }
