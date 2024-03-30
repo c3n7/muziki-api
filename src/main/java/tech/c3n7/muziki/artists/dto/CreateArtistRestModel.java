@@ -2,15 +2,15 @@ package tech.c3n7.muziki.artists.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public class CreateArtistDTO {
+public class CreateArtistRestModel {
     @NotBlank(message="This field is required.")
     private String name;
 
-    public CreateArtistDTO(String name) {
+    public CreateArtistRestModel(String name) {
         this.name = name;
     }
 
-    public CreateArtistDTO() {
+    public CreateArtistRestModel() {
     }
 
     public String getName() {

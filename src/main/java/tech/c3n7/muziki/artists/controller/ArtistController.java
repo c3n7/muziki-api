@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tech.c3n7.muziki.artists.dto.ArtistListResponseDTO;
-import tech.c3n7.muziki.artists.dto.CreateArtistDTO;
+import tech.c3n7.muziki.artists.dto.CreateArtistRestModel;
 import tech.c3n7.muziki.artists.entity.Artist;
 import tech.c3n7.muziki.artists.service.ArtistService;
 
@@ -21,7 +21,7 @@ public class ArtistController {
     }
 
     @PostMapping
-    public Artist createArtist(@Valid @RequestBody CreateArtistDTO artist)
+    public Artist createArtist(@Valid @RequestBody CreateArtistRestModel artist)
     {
         return artistService.createArtist(artist.getName());
     }
