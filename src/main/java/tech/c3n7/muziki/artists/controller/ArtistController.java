@@ -15,14 +15,12 @@ public class ArtistController {
     private ArtistService artistService;
 
     @GetMapping
-    public ArtistListResponseDTO getArtists(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "20") int size)
-    {
+    public ArtistListResponseDTO getArtists(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "20") int size) {
         return artistService.findAll(page, size);
     }
 
     @PostMapping
-    public Artist createArtist(@Valid @RequestBody CreateArtistRestModel artist)
-    {
-        return artistService.createArtist(artist.getName());
+    public Artist createArtist(@Valid @ModelAttribute CreateArtistRestModel artist) {
+        return artistService.createArtist(artist.getName(), artist.getCover());
     }
 }

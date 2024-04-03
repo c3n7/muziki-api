@@ -3,16 +3,23 @@ package tech.c3n7.muziki.artists.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import tech.c3n7.muziki.artists.dao.ArtistRepository;
 import tech.c3n7.muziki.artists.dto.ArtistListResponseDTO;
 import tech.c3n7.muziki.artists.entity.Artist;
+import tech.c3n7.muziki.core.exception.StorageException;
+import tech.c3n7.muziki.core.service.StorageService;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
 public class ArtistServiceImpl implements ArtistService {
     @Autowired
     private ArtistRepository artistRepository;
+
+    @Autowired
+    private StorageService storageService;
 
     @Override
     public ArtistListResponseDTO findAll(int pageNumber, int pageSize) {
@@ -32,6 +39,18 @@ public class ArtistServiceImpl implements ArtistService {
     public Artist createArtist(String name) {
         Artist artist = new Artist();
         artist.setName(name);
+        artistRepository.save(artist);
+
+        return artist;
+    }
+
+    @Override
+    public Artist createArtist(String name, MultipartFile cover) {
+        storageService.store(cover);
+
+        Artist artist = new Artist();
+        artist.setName(name);
+        artist.setImage(cover.getOriginalFilename());
         artistRepository.save(artist);
 
         return artist;
