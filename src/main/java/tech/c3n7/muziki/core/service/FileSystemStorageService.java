@@ -16,6 +16,7 @@ import java.util.Objects;
 
 @Service
 public class FileSystemStorageService implements StorageService {
+    // https://spring.io/guides/gs/uploading-files
     private final Path rootLocation;
 
     @Autowired

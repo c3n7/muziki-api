@@ -12,6 +12,7 @@ import tech.c3n7.muziki.core.service.StorageService;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ArtistServiceImpl implements ArtistService {
@@ -36,21 +37,13 @@ public class ArtistServiceImpl implements ArtistService {
     }
 
     @Override
-    public Artist createArtist(String name) {
+    public Artist createArtist(String name, Optional<MultipartFile> cover) {
         Artist artist = new Artist();
         artist.setName(name);
-        artistRepository.save(artist);
-
-        return artist;
-    }
-
-    @Override
-    public Artist createArtist(String name, MultipartFile cover) {
-        storageService.store(cover);
-
-        Artist artist = new Artist();
-        artist.setName(name);
-        artist.setImage(cover.getOriginalFilename());
+        if (cover.isPresent()) {
+            storageService.store(cover.get());
+            artist.setImage(cover.get().getOriginalFilename());
+        }
         artistRepository.save(artist);
 
         return artist;

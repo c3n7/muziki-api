@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.mock.web.MockPart;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -13,6 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 import tech.c3n7.muziki.artists.dto.ArtistListResponseDTO;
 import tech.c3n7.muziki.artists.dto.CreateArtistRestModel;
 import tech.c3n7.muziki.artists.service.ArtistService;
+
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -35,8 +39,8 @@ public class ArtistControllerTest {
 
     @Test
     public void getArtistsHttpRequest() throws Exception {
-        artistService.createArtist("John Doe");
-        artistService.createArtist("Jane Doe");
+        artistService.createArtist("John Doe", Optional.empty());
+        artistService.createArtist("Jane Doe", Optional.empty());
 
         mockMvc.perform(MockMvcRequestBuilders.get("/artists"))
                 .andExpect(status().isOk())
@@ -51,8 +55,8 @@ public class ArtistControllerTest {
     public void createArtistHttpRequest() throws Exception {
         CreateArtistRestModel artist = new CreateArtistRestModel("John Doe");
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/artists")
-                        .contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/artists")
+                        .part(new MockPart("name", artist.getName().getBytes()))
                         .content(objectMapper.writeValueAsString(artist)))
                 .andExpect(status().isOk());
 

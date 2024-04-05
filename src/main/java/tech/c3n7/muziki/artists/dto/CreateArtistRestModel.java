@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotNull;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CreateArtistRestModel {
-    @NotNull(message = "This field is required.")
     MultipartFile cover;
     @NotBlank(message = "This field is required.")
     private String name;
