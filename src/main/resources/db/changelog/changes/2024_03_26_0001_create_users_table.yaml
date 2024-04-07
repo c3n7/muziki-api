@@ -14,7 +14,12 @@ databaseChangeLog:
                     nullable: false
                     primaryKey: true
               - column:
-                  name: name
+                  name: first_name
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
                   type: VARCHAR(100)
                   constraints:
                     nullable: false
@@ -31,8 +36,8 @@ databaseChangeLog:
                   constraints:
                     nullable: true
               - column:
-                  name: is_admin
-                  type: TIMESTAMP
+                  name: role
+                  type: INT UNSIGNED
                   constraints:
                     nullable: true
               - column:
